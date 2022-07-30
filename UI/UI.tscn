@@ -1,0 +1,63 @@
+[gd_scene load_steps=3 format=2]
+
+[ext_resource path="res://assets/fonts/Xolonium-Regular.tres" type="DynamicFont" id=1]
+[ext_resource path="res://UI/UI.gd" type="Script" id=2]
+
+[node name="CanvasLayer" type="CanvasLayer"]
+
+[node name="UI" type="Control" parent="."]
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_right = -1024.0
+margin_bottom = -600.0
+script = ExtResource( 2 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="CountdownTimer" type="Timer" parent="UI"]
+
+[node name="TimerText" type="Label" parent="UI"]
+margin_left = 472.0
+margin_top = 552.0
+margin_right = 712.0
+margin_bottom = 589.0
+custom_fonts/font = ExtResource( 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="ExecuteButton" type="Button" parent="UI"]
+margin_left = 832.0
+margin_top = 512.0
+margin_right = 971.005
+margin_bottom = 572.0
+custom_fonts/font = ExtResource( 1 )
+text = "Execute"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="TurnText" type="Label" parent="UI"]
+margin_left = 832.0
+margin_top = 448.0
+margin_right = 1004.0
+margin_bottom = 485.0
+custom_fonts/font = ExtResource( 1 )
+text = "turn_count"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Reset_zoom" type="Button" parent="UI"]
+margin_left = 912.0
+margin_top = 32.0
+margin_right = 1011.0
+margin_bottom = 52.0
+text = "Reset camera"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+[connection signal="timeout" from="UI/CountdownTimer" to="UI" method="_on_CountdownTimer_timeout"]
+[connection signal="pressed" from="UI/ExecuteButton" to="UI" method="_on_ExecuteButton_pressed"]
+[connection signal="pressed" from="UI/Reset_zoom" to="UI" method="_on_Reset_zoom_pressed"]
